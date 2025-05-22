@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://6avo6d0nxqmj"]
+
+[ext_resource type="Script" uid="uid://j1t1p3qqexo1" path="res://main scenes/bouncy.gd" id="1_ucang"]
+[ext_resource type="Texture2D" uid="uid://bs5njprchm0sf" path="res://Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="2_gjqqa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bv3am"]
+atlas = ExtResource("2_gjqqa")
+region = Rect2(480, 292, 40, 146)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7t3g5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bv3am")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4xjn"]
+atlas = ExtResource("2_gjqqa")
+region = Rect2(387, 308, 91, 44)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ge3qb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4xjn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7mjj"]
+atlas = ExtResource("2_gjqqa")
+region = Rect2(389, 377, 90, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x2n68"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7mjj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhlva"]
+size = Vector2(94, 20)
+
+[node name="LauncherArea" type="Area2D"]
+script = ExtResource("1_ucang")
+
+[node name="spriteflip" type="AnimatedSprite2D" parent="."]
+position = Vector2(48, 16)
+sprite_frames = SubResource("SpriteFrames_7t3g5")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(-48, 15)
+sprite_frames = SubResource("SpriteFrames_7t3g5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ge3qb")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, 50)
+sprite_frames = SubResource("SpriteFrames_x2n68")
+
+[node name="PingyThingy" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_bhlva")
